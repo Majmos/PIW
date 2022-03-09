@@ -1,13 +1,38 @@
 <!DOCTYPE html>
+<style>
+    @import url('https://fonts.googleapis.com/css2?family=Dancing+Script&family=Indie+Flower&family=Sansita+Swashed:wght@300&family=Shadows+Into+Light&display=swap');
+    :root {
+        background-color: #444;
+        color: white;
+        --font: "Shadows Into Light"
+    }
+    .links {
+        text-align: center;
+    }
+    .buttons {
+        margin: 0.5rem;
+        border-radius: 50%;
+        border-style: dotted;
+        padding: 0.5rem;
+        font-size: 1rem;
+        background-color: slateblue;
+        color: white;
+        font-family: var(--font), cursive;
+    }
+    button:hover {
+        text-decoration: underline;
+        cursor: pointer;
+    }
+</style>
 <html>
     <head>
         <title>Projektowanie Interfejsów Webowych</title>
         <meta charset="UTF-8"/>
     </head>
     <body>
-        <div>
-            <a href="Lab1/basic_html.html">HTML</a><br />
-            <a href="Lab1/basic_css.html">CSS</a>
+        <div class="links">
+            <a href="Lab1/basic_html.html"><button class="buttons">HTML</button></a><br />
+            <a href="Lab1/basic_css.html"><button class="buttons">CSS</button></a>
         </div>
     </body>
 </html>
