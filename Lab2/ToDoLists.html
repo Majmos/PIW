@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<style>
+    :root {
+        display: flexbox;
+        background-color: #444;
+        color: white;
+    }
+    #todo-input {
+        border-style: none;
+    }
+    .lists {
+        border-style: groove;
+        border-color: #777;
+        width: fit-content;
+        padding-left: 2%;
+        padding-right: 2%;
+    }
+</style>
+<html>
+    <head>
+        <title>Listy TODO</title>
+        <meta charset="UTF-8"/>
+    </head>
+    </head>
+    <body>
+        <div>
+            <a href="../index.html" style="color: whitesmoke;">&laquo; Wróć</a>
+            <div id="todo-input">
+                <h2>Dodaj do listy</h2>
+                <input id="input-textbox" type="text" name="input-list"/>
+                <button id="add-button">Dodaj</button>
+            </div>
+            <ul class="lists" id="example-list">
+                <h2>Przykładowa lista</h2>
+            </ul>
+        </div>
+        <script src="ToDoLists.js"></script>
+    </body>
+</html>
