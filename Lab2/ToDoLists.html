@@ -5,20 +5,50 @@
         background-color: #444;
         color: white;
     }
+    .delete-button {
+        float: right;
+    }
     #todo-input {
         border-style: none;
+    }
+    li {
+        max-width: 50rem;
+        margin-left: 10%;
+        padding: 0.5rem;
+    }
+    .date-text {
+        color: white;
+        text-decoration: none;
+        margin-left: 1rem;
+    }
+    .done {
+        text-decoration: line-through;
+        color: greenyellow;
+    }
+    .undone {
+        text-decoration: none;
+        color: white;
     }
     .lists {
         border-style: groove;
         border-color: #777;
-        width: fit-content;
-        padding-left: 2%;
-        padding-right: 2%;
+    }
+    #modal{
+        display: none;
+        text-align: center;
+        z-index: 1;
+        position: fixed;
+        background-color: rgba(0,0,0,0.6);
+        width: 100%;
+        height: 100%;
+        left: 0;
+        top: 0;
     }
 </style>
 <html>
     <head>
         <title>Listy TODO</title>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
         <meta charset="UTF-8"/>
     </head>
     </head>
@@ -27,12 +57,15 @@
             <a href="../index.html" style="color: whitesmoke;">&laquo; Wróć</a>
             <div id="todo-input">
                 <h2>Dodaj do listy</h2>
-                <input id="input-textbox" type="text" name="input-list"/>
-                <button id="add-button">Dodaj</button>
+                <input id="input-textbox" type="text" />
+                <button id="add-button" onclick="addItem()">Dodaj</button>
             </div>
             <ul class="lists" id="example-list">
                 <h2>Przykładowa lista</h2>
             </ul>
+        </div>
+        <div id="modal">
+            <h1>Pole jest puste!</h1>
         </div>
         <script src="ToDoLists.js"></script>
     </body>
