@@ -1,22 +1,23 @@
-const Student = (student = { name: String, description, tags, subjects }) => (
-    <div className="student">
+const Student = ({student}) => (
+    <div>
         <div>
-            <h1>Nazwa: {student.name}</h1>
+            <h2>Nazwa:</h2>
+            {student.name}
         </div>
         <div>
-            <h1>Opis:</h1>
+            <h2>Opis:</h2>
             {student.description}
         </div>
         <div>
-            <h1>Tags:</h1>
-            <ul>
-            {student.tags.map((tag, i) => <li key={i}>{tag}</li>)}
+            <h2>Tags:</h2>
+            <ul className="tags">
+            {student.tags.map((tag, i) => <li key={i} className="tag">{tag}</li>)}
             </ul>
         </div>
         <div>
-            <h1>Subjects:</h1>
-            <ul>
-            {student.subjects.map((subject, i) => <li key={i}>{subject}</li>)}
+            <h2>Subjects:</h2>
+            <ul className="subjects">
+            {student.subjects.map((subject, i) => <li key={i} className="subject">{subject}</li>)}
             </ul>
         </div>
     </div>
