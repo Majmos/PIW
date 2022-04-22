@@ -1,0 +1,16 @@
+{
+  "files": {
+    "main.css": "/PIW/Lab3/build/static/css/main.d0b5007b.css",
+    "main.js": "/PIW/Lab3/build/static/js/main.1ccf0183.js",
+    "static/js/787.29e437c6.chunk.js": "/PIW/Lab3/build/static/js/787.29e437c6.chunk.js",
+    "static/media/logo.svg": "/PIW/Lab3/build/static/media/logo.6ce24c58023cc2f8fd88fe9d219db6c6.svg",
+    "index.html": "/PIW/Lab3/build/index.html",
+    "main.d0b5007b.css.map": "/PIW/Lab3/build/static/css/main.d0b5007b.css.map",
+    "main.1ccf0183.js.map": "/PIW/Lab3/build/static/js/main.1ccf0183.js.map",
+    "787.29e437c6.chunk.js.map": "/PIW/Lab3/build/static/js/787.29e437c6.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.d0b5007b.css",
+    "static/js/main.1ccf0183.js"
+  ]
+}
