@@ -1,34 +1,31 @@
 import { useState } from "react";
 import './App.css';
-import Student from "./Student";
+import AddStudent from "./AddStudent";
+import { BrowserRouter, Routes, Route, Link } from "react-router-dom";
+import SearchStudents from "./SearchStudents";
 
 function App() {
   const [students, setStudents] = useState([
-      { name: "Adam", description: "Jestem studentem. Szukam grupy do kursu Architektura Komputerów 2. Potrafię pisać kod w C.", tags: ["C", "Kotlin"], subjects: ["AK2"] },
-      { name: "Wojtek Konon", description: "Udaje studenta", tags: ["C", "JS"], subjects: ["PIW", "AK2"]}
-  ])
-  const [searchBy, setSearchBy] = useState("description")
-  const [searchText, setSearchText] = useState("")
+        { name: "Adam", description: "Jestem studentem. Szukam grupy do kursu Architektura Komputerów 2. Potrafię pisać kod w C.", tags: ["C", "Kotlin"], subjects: ["AK2"] },
+        { name: "Wojtek Konon", description: "Udaje studenta", tags: ["C", "JS"], subjects: ["PIW", "AK2"]}
+    ])
+  
   return (
-    <div className="App">
-      <h1>Studenci poszukujący grupę:</h1>
-      <input type="search" onChange={(e) => setSearchText(e.target.value)}></input>
-      <select value={searchBy} onChange={(e) => setSearchBy(e.target.value)}>
-        <option value="name">Nazwa</option>
-        <option value="description">Opis</option>
-        <option value="tags">Tagi</option>
-        <option value="subjects">Przedmioty</option>
-      </select>
-      <ul className="students-list">
-        {students.filter(student => {
-          if (searchBy==="name" || searchBy==="description") {
-            return student[searchBy].toLowerCase().includes(searchText.toLowerCase())
-          } else {
-            return student[searchBy].find(element => element.toLowerCase().includes(searchText.toLowerCase()))
-          }
-        }).map((s, i) => <li key={i} className="student"><Student student={s} /></li>)}
-      </ul>
-    </div>
+    <BrowserRouter basename="PIW/Lab3/build">
+      <div className="App">
+        
+        <nav>
+          <Link to="/"><button className="navButton">Szukaj ogłoszeń</button></Link>
+          <Link to="/addStudent"><button className="navButton">Dodaj ogłoszenie</button></Link>
+        </nav>
+
+        <Routes>
+         <Route path="/" element={<SearchStudents students={students} />}/>
+         <Route path="/addStudent" element={<AddStudent />}/>
+        </Routes>
+        
+      </div>
+    </BrowserRouter>
   );
 }
 
