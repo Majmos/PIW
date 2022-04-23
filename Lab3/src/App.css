@@ -50,8 +50,54 @@
 
 .navButton {
   margin: 0 1rem;
+  font-size: larger;
   background-color: #333;
   color: cornflowerblue;
   border-radius: 0.3rem;
   border-color: cornflowerblue;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.formBox {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  max-width: fit-content;
+}
+
+.formLabel {
+  font-size: x-large;
+  align-self: center;
+}
+
+.formBox label {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.formBox > * {
+  margin: 0.5rem 0;
+}
+
+.submitButton {
+  background-color: #333;
+  font-size: larger;
+  color: rgb(100, 237, 149);
+  border-radius: 0.3rem;
+  border-color: rgb(100, 237, 149);
+  max-width: fit-content;
+}
+
+.formButton {
+  background-color: #333;
+  color: rgb(237, 149, 100);
+  border-radius: 0.3rem;
+  border-color: rgb(237, 149, 100);
+  max-width: fit-content;
 }
