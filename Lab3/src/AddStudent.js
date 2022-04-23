@@ -1,24 +1,34 @@
 function AddStudent() {
 
     return (
-        <form>
-            <div className="formBox">
-                <label className="formLabel">Nowe ogłoszenie</label>
-                <label>
-                    Nazwa:
+        <div className="formBox">
+            <h1>Nowe ogłoszenie</h1>
+            <form>
+                <div className="formElement">  
+                    <label>Nazwa:</label>
                     <input placeholder="Nazwa" type={"text"}/>
-                </label>
-                <input placeholder="E-mail" type={"email"}/>
-                <textarea placeholder="Opis"/>
-                <div>
-                    <input placeholder="Tag" type={"text"}/><button className="formButton">Dodaj</button>
                 </div>
-                <div>
-                    <input placeholder="Przedmiot" type={"text"}/><button className="formButton">Dodaj</button>
+                <div className="formElement">
+                    <label>E-mail:</label>
+                    <input placeholder="E-mail" type={"email"}/></div>
+                <div className="formElement">
+                    <label>Opis:</label>
+                    <textarea placeholder="Opis"/></div>
+                <div className="formElement">
+                    <label>Tag:</label>
+                    <div className="inputBox">
+                        <input placeholder="Tag" type={"text"}/><button className="formButton">Dodaj</button>
+                    </div>
                 </div>
-            </div>
-            <input className="submitButton" value={"Dodaj ogłoszenie"} type={"submit"}/>
-        </form>
+                <div className="formElement">
+                    <label>Przedmiot:</label>
+                    <div className="inputBox">
+                        <input placeholder="Przedmiot" type={"text"}/><button className="formButton">Dodaj</button>
+                    </div>
+                </div>
+                <input className="submitButton" value={"Dodaj ogłoszenie"} type={"submit"}/>
+            </form>
+        </div>
     );
 }
 
