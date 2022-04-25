@@ -9,19 +9,7 @@ const AddGroup = ({ students, addGroup }) => {
   const [subject, setSubject] = useState("");
 
   const handleAddMember = () => {
-    console.log(member?.type);
-    console.log(document.getElementById("select").value);
-    let selectedStudent = students.find((student) => student.email === document.getElementById("select").value);
-    console.log({ selectedStudent });
-    if (selectedStudent) {
-      setMember(selectedStudent);
-    } else {
-      console.log("DZIWNE");
-      setMember(null);
-    }
-    console.log({ member });
     let foundMember = members.map((v) => v.email).includes(member?.email);
-    console.log(foundMember);
     if (!foundMember && member !== "" && member !== null) {
       setMembers([...members, member]);
     }
@@ -34,11 +22,12 @@ const AddGroup = ({ students, addGroup }) => {
     setMembers([]);
   };
 
-  const handleChange = (e) => {
+  const handleTextChange = (e) => {
     setSearchText(e.target.value);
-    console.log(document.getElementById("select").value);
+  };
+
+  const handleMemberChange = () => {
     let selectedStudent = students.find((student) => student.email === document.getElementById("select").value);
-    console.log(selectedStudent?.name);
     if (selectedStudent) {
       setMember(selectedStudent);
     } else {
@@ -60,10 +49,8 @@ const AddGroup = ({ students, addGroup }) => {
         <div className="formElement">
           <label>Członkowie:</label>
           <div className="inputBox">
-            <input onChange={handleChange} placeholder="" type={"search"} />
-            <button
-              onFocus={() => setMember(students.find((student) => student.email === document.getElementById("select").value))}
-              type="button" onClick={handleAddMember} className="formButton">Dodaj</button>
+            <input onChange={handleTextChange} placeholder="" type={"search"} />
+            <button onFocus={handleMemberChange} type="button" onClick={handleAddMember} className="formButton">Dodaj</button>
           </div>
           <div>
             <select id="select" onClick={(e) => setMember(students.find((student) => student.email === e.target.value))}>
@@ -78,7 +65,7 @@ const AddGroup = ({ students, addGroup }) => {
         </div>
         <div className="formElement">
           <label>Przedmiot:</label>
-          <input onChange={(e) => setSubject(e.target.value)} placeholder="Przedmiot" type={"text"} />
+          <input required onChange={(e) => setSubject(e.target.value)} placeholder="Przedmiot" type={"text"} />
         </div>
         <input className="submitButton" value="Dodaj ogłoszenie" type="submit" />
       </form >
