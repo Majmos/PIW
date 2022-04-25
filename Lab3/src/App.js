@@ -21,7 +21,7 @@ function App() {
 
         <Routes>
          <Route path="/" element={<SearchStudents students={students} />}/>
-         <Route path="/addStudent" element={<AddStudent />}/>
+         <Route path="/addStudent" element={<AddStudent addStudent={(student) => setStudents([student, students])} />}/>
         </Routes>
         
       </div>
