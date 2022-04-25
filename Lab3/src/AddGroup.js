@@ -60,7 +60,7 @@ const AddGroup = ({ students, addGroup }) => {
             </select>
           </div>
           <ul>
-            {members.map((member, i) => <li key={i} className="member">{member.name}</li>)}
+            {members.map((member, i) => <li key={i} className="member">{member?.name}</li>)}
           </ul>
         </div>
         <div className="formElement">
