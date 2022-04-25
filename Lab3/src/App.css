@@ -2,7 +2,7 @@
   text-align: center;
 }
 
-.students-list {
+.students-list, .groups-list {
   list-style-type: none;
   display: flex;
   flex-wrap: wrap;
@@ -10,7 +10,7 @@
   align-items: baseline;
 }
 
-.student {
+.student, .group {
   width: 20rem;
   background-color: midnightblue;
   margin: 0.5rem;
@@ -18,30 +18,16 @@
   padding-bottom: 2rem;
 }
 
-.tags {
+.tags, .subjects, .members {
   display: flex;
   justify-content: space-evenly;
   flex-wrap: wrap;
   padding: 0 1rem;
   list-style-type: none;
+  gap: 0.5rem 0;
 }
 
-.tag {
-  margin: auto;
-  padding: 2% 4%;
-  border-radius: 1rem;
-  background-color: darkslateblue;
-}
-
-.subjects {
-  display: flex;
-  justify-content: space-evenly;
-  flex-wrap: wrap;
-  list-style-type: none;
-  padding: 0 1rem;
-}
-
-.subject {
+.tag, .subject, .member {
   margin: auto;
   padding: 2% 4%;
   border-radius: 1rem;
