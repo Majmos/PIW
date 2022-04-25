@@ -85,3 +85,29 @@ form {
   border-color: rgb(237, 149, 100);
   max-width: fit-content;
 }
+
+.susModal {
+  display: none;
+  text-align: center;
+  z-index: 1;
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  left: 0;
+  top: 0;
+}
+
+.susModal-active {
+  display: block;
+  text-align: center;
+  z-index: 1;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  left: 0;
+  top: 10%;
+}
+
+.sus {
+  max-width: 100%;
+}

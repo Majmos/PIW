@@ -7,6 +7,7 @@ function AddStudent({ addStudent }) {
   const [tag, setTag] = useState("");
   const [subjects, setSubjects] = useState([]);
   const [subject, setSubject] = useState("");
+  const [email, setEmail] = useState("");
 
   const handleAddTag = () => {
     if (tag !== "") {
@@ -22,7 +23,7 @@ function AddStudent({ addStudent }) {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    addStudent({ name, description, tags, subjects });
+    addStudent({ name, description, tags, subjects, email });
     e.target.reset();
     setTags([]);
     setSubjects([]);
@@ -38,7 +39,8 @@ function AddStudent({ addStudent }) {
         </div>
         <div className="formElement">
           <label>E-mail:</label>
-          <input required placeholder="E-mail" type={"email"} /></div>
+          <input required placeholder="E-mail" type={"email"} onChange={(e) => setEmail(e.target.value)} />
+        </div>
         <div className="formElement">
           <label>Opis:</label>
           <textarea required placeholder="Opis" onChange={(e) => setDescription(e.target.value)} /></div>
