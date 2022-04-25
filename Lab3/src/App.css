@@ -18,6 +18,10 @@
   padding-bottom: 2rem;
 }
 
+.student:hover, .group:hover {
+  background-color: rgb(35, 35, 122);
+}
+
 .tags, .subjects, .members {
   display: flex;
   justify-content: space-evenly;
@@ -110,4 +114,46 @@ form {
 
 .sus {
   max-width: 100%;
+}
+
+.modal {
+  display: none;
+  text-align: center;
+  z-index: 1;
+  position: absolute;
+  top: 0;
+  width: 100%;
+}
+
+.modal-active {
+  display: flex;
+  justify-content: center;
+  z-index: 1;
+  position: absolute;
+  width: 100%;
+  animation-name: modal-active;
+  animation-duration: 3000ms;
+}
+
+.modal-active > * {
+  background-color: rgb(20, 157, 69);
+  padding: 1rem 10rem;
+  width: fit-content;
+  border-radius: 10rem;
+}
+
+@keyframes modal-active {
+  0% {
+    transform: translateY(200px);
+  }
+}
+
+.none {
+  display: contents;
+  appearance: inherit;
+  color: white;
+}
+
+.none:hover {
+  cursor: default;
 }

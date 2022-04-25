@@ -9,8 +9,20 @@ const AddGroup = ({ students, addGroup }) => {
   const [subject, setSubject] = useState("");
 
   const handleAddMember = () => {
-    console.log(member.type);
-    if (member !== "") {
+    console.log(member?.type);
+    console.log(document.getElementById("select").value);
+    let selectedStudent = students.find((student) => student.email === document.getElementById("select").value);
+    console.log({ selectedStudent });
+    if (selectedStudent) {
+      setMember(selectedStudent);
+    } else {
+      console.log("DZIWNE");
+      setMember(null);
+    }
+    console.log({ member });
+    let foundMember = members.map((v) => v.email).includes(member?.email);
+    console.log(foundMember);
+    if (!foundMember && member !== "" && member !== null) {
       setMembers([...members, member]);
     }
   };
@@ -20,6 +32,18 @@ const AddGroup = ({ students, addGroup }) => {
     addGroup({ name, description, members, subject });
     e.target.reset();
     setMembers([]);
+  };
+
+  const handleChange = (e) => {
+    setSearchText(e.target.value);
+    console.log(document.getElementById("select").value);
+    let selectedStudent = students.find((student) => student.email === document.getElementById("select").value);
+    console.log(selectedStudent?.name);
+    if (selectedStudent) {
+      setMember(selectedStudent);
+    } else {
+      setMember(null);
+    }
   };
 
   return (
@@ -36,10 +60,13 @@ const AddGroup = ({ students, addGroup }) => {
         <div className="formElement">
           <label>Członkowie:</label>
           <div className="inputBox">
-            <input onChange={(e) => setSearchText(e.target.value)} placeholder="" type={"search"} /><button type="button" onClick={handleAddMember} className="formButton">Dodaj</button>
+            <input onChange={handleChange} placeholder="" type={"search"} />
+            <button
+              onFocus={() => setMember(students.find((student) => student.email === document.getElementById("select").value))}
+              type="button" onClick={handleAddMember} className="formButton">Dodaj</button>
           </div>
           <div>
-            <select onChange={(e) => setMember(students.find((student) => student.email === e.target.value))}>
+            <select id="select" onClick={(e) => setMember(students.find((student) => student.email === e.target.value))}>
               {students
                 .filter((student) => student.name.toLowerCase().includes(searchText.toLowerCase()))
                 .map((student, i) => <option value={student.email} key={i}>{student.name}</option>)}

@@ -1,12 +1,13 @@
 import { Component } from "react";
 import Group from "./Group";
+import { Link } from "react-router-dom";
 
 export default class SearchGroups extends Component {
   constructor(props) {
     super(props);
     this.state = {
       searchBy: "name",
-      searchText: ""
+      searchText: "",
     };
   }
   handleSearchByChange = (e) => {
@@ -32,15 +33,17 @@ export default class SearchGroups extends Component {
             <option value="members">Członkowie</option>
             <option value="subject">Przedmiot</option>
           </select>
-          <ul className="groups-list">
-            {this.props.groups.filter(group => {
-              if (this.state.searchBy !== "members") {
-                return group[this.state.searchBy].toLowerCase().includes(this.state.searchText.toLowerCase());
-              } else {
-                return group[this.state.searchBy].find(element => element.name.toLowerCase().includes(this.state.searchText.toLowerCase()));
-              }
-            }).map((g, i) => <li key={i} className="group"><Group group={g} /></li>)}
-          </ul>
+          <nav>
+            <ul className="groups-list">
+              {this.props.groups.filter(group => {
+                if (this.state.searchBy !== "members") {
+                  return group[this.state.searchBy].toLowerCase().includes(this.state.searchText.toLowerCase());
+                } else {
+                  return group[this.state.searchBy].find(element => element.name.toLowerCase().includes(this.state.searchText.toLowerCase()));
+                }
+              }).map((g, i) => <Link className="none" key={i} to={"/sendMessage"}><li key={i} className="group"><Group group={g} /></li></Link>)}
+            </ul>
+          </nav>
         </div>
       </>
     );

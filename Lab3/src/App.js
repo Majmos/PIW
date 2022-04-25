@@ -5,6 +5,7 @@ import { BrowserRouter, Routes, Route, Link } from "react-router-dom";
 import SearchStudents from "./SearchStudents";
 import SearchGroups from "./SearchGroups";
 import AddGroup from "./AddGroup";
+import SendMassage from "./SendMassage";
 
 function App() {
   const [students, setStudents] = useState([
@@ -35,6 +36,7 @@ function App() {
           <Route path="/addStudent" element={<AddStudent addStudent={(student) => setStudents([...students, student])} />} />
           <Route path="/groups" element={<SearchGroups groups={groups} />} />
           <Route path="/addGroup" element={<AddGroup students={students} addGroup={(group) => setGroups([...groups, group])} />} />
+          <Route path="/sendMessage" element={<SendMassage />} />
         </Routes>
 
       </div>

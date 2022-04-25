@@ -1,5 +1,6 @@
 import Student from "./Student";
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 function SearchStudents({ students }) {
   const [searchBy, setSearchBy] = useState("name");
@@ -22,6 +23,8 @@ function SearchStudents({ students }) {
     setToggle(false);
   };
 
+  const navigate = useNavigate();
+
   return (
     <div>
       <h1>Studenci poszukujący grupę:</h1>
@@ -42,7 +45,7 @@ function SearchStudents({ students }) {
           } else {
             return student[searchBy].find(element => element.toLowerCase().includes(searchText.toLowerCase()));
           }
-        }).map((s, i) => <li key={i} className="student"><Student student={s} /></li>)}
+        }).map((s, i) => <li onClick={() => navigate("/sendMessage", { replace: true })} key={i} className="student"><Student student={s} /></li>)}
       </ul>
     </div>
   );
