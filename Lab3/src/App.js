@@ -1,7 +1,7 @@
 import { useState } from "react";
 import "./App.css";
 import AddStudent from "./AddStudent";
-import { BrowserRouter, Routes, Route, Link } from "react-router-dom";
+import { HashRouter, Routes, Route, Link } from "react-router-dom";
 import SearchStudents from "./SearchStudents";
 import SearchGroups from "./SearchGroups";
 import AddGroup from "./AddGroup";
@@ -21,7 +21,7 @@ function App() {
   ]);
 
   return (
-    <BrowserRouter basename="PIW/Lab3/build">
+    <HashRouter>
       <div className="App">
 
         <nav>
@@ -40,7 +40,7 @@ function App() {
         </Routes>
 
       </div>
-    </BrowserRouter>
+    </HashRouter>
   );
 }
 
