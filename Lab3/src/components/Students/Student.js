@@ -1,6 +1,9 @@
 const Student = ({ student }) => (
   <div>
     <div>
+      <img src="https://picsum.photos/100/100" alt="Zdjęcie profilowe" />
+    </div>
+    <div>
       <h2>Nazwa:</h2>
       {student.name}
     </div>

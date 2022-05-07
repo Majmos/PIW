@@ -1,11 +1,11 @@
 import { useState, useEffect } from "react";
 import "./App.css";
-import AddStudent from "./AddStudent";
+import AddStudent from "./components/Students/AddStudent";
 import { HashRouter, Routes, Route, Link } from "react-router-dom";
-import SearchStudents from "./SearchStudents";
-import SearchGroups from "./SearchGroups";
-import AddGroup from "./AddGroup";
-import SendMassage from "./SendMassage";
+import SearchStudents from "./components/Students/SearchStudents";
+import SearchGroups from "./components/Groups/SearchGroups";
+import AddGroup from "./components/Groups/AddGroup";
+import SendMassage from "./components/Messages/SendMassage";
 
 function App() {
   const [students, setStudents] = useState([]);
