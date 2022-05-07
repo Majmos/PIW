@@ -2,7 +2,7 @@
   text-align: center;
 }
 
-.students-list, .groups-list {
+.students-list, .groups-list, .student-profile {
   list-style-type: none;
   display: flex;
   flex-wrap: wrap;
@@ -156,4 +156,9 @@ form {
 
 .none:hover {
   cursor: default;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
 }

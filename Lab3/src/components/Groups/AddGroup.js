@@ -9,7 +9,7 @@ const AddGroup = ({ students, addGroup }) => {
   const [subject, setSubject] = useState("");
 
   const handleAddMember = () => {
-    let foundMember = members.map((v) => v.email).includes(member?.email);
+    let foundMember = members.find((v) => v.id === member?.id);
     if (!foundMember && member !== "" && member !== null) {
       setMembers([...members, member]);
     }
@@ -27,7 +27,7 @@ const AddGroup = ({ students, addGroup }) => {
   };
 
   const handleMemberChange = () => {
-    let selectedStudent = students.find((student) => student.email === document.getElementById("select").value);
+    let selectedStudent = students.find((student) => student.id === parseInt(document.getElementById("select").value));
     if (selectedStudent) {
       setMember(selectedStudent);
     } else {
@@ -53,10 +53,10 @@ const AddGroup = ({ students, addGroup }) => {
             <button onFocus={handleMemberChange} type="button" onClick={handleAddMember} className="formButton">Dodaj</button>
           </div>
           <div>
-            <select id="select" onClick={(e) => setMember(students.find((student) => student.email === e.target.value))}>
+            <select id="select" onClick={(e) => setMember(students.find((student) => student.id === e.target.value))}>
               {students
                 .filter((student) => student.name.toLowerCase().includes(searchText.toLowerCase()))
-                .map((student, i) => <option value={student.email} key={i}>{student.name}</option>)}
+                .map((student, i) => <option value={student.id} key={i}>{student.name}</option>)}
             </select>
           </div>
           <ul>

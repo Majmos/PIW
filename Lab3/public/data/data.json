@@ -1,6 +1,7 @@
 {
     "students": [
         {
+            "id": 1,
             "name": "Adam",
             "description": "Jestem studentem. Szukam grupy do kursu Architektura Komputerów 2. Potrafię pisać kod w C.",
             "tags": ["C", "Kotlin"],
@@ -8,6 +9,7 @@
             "email": "adam@student.pl" 
         },
         {
+            "id": 2,
             "name": "Krzysiek Konon",
             "description": "Udaje studenta",
             "tags": ["C", "JS"],
@@ -15,6 +17,7 @@
             "email": "krzysztof.konon@student.pl" 
         },
         {
+            "id": 3,
             "name": "Wojtek Suchodolski",
             "description": "Lubie tworzyć ładne strony internetowe.",
             "tags": ["CSS", "JS"],
@@ -22,6 +25,7 @@
             "email": "wojtek.suchodolski@student.pl" 
         },
         {
+            "id": 4,
             "name": "Marek Suski",
             "description": "Chcę dostać się do jakiejkolwiek grupy.",
             "tags": ["CSS", "JS", "C", "Java", "Kotlin", "C++"],
@@ -31,6 +35,7 @@
     ],
     "groups": [
         {
+            "id": 1,
             "name": "Web-Dev",
             "members": [
                 {
@@ -52,6 +57,7 @@
             "subject": "PIW" 
         },
         {
+            "id": 2,
             "name": "Architektura komputerów",
             "members": [
                 {
