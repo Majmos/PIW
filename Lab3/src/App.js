@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import "./App.css";
 import AddStudent from "./AddStudent";
 import { HashRouter, Routes, Route, Link } from "react-router-dom";
@@ -8,17 +8,21 @@ import AddGroup from "./AddGroup";
 import SendMassage from "./SendMassage";
 
 function App() {
-  const [students, setStudents] = useState([
-    { name: "Adam", description: "Jestem studentem. Szukam grupy do kursu Architektura Komputerów 2. Potrafię pisać kod w C.", tags: ["C", "Kotlin"], subjects: ["AK2"], email: "adam@student.pl" },
-    { name: "Krzysiek Konon", description: "Udaje studenta", tags: ["C", "JS"], subjects: ["PIW", "AK2"], email: "krzysztof.konon@student.pl" },
-    { name: "Wojtek Suchodolski", description: "Lubie tworzyć ładne strony internetowe.", tags: ["CSS", "JS"], subjects: ["PIW"], email: "wojtek.suchodolski@student.pl" },
-    { name: "Marek Suski", description: "Chcę dostać się do jakiejkolwiek grupy.", tags: ["CSS", "JS", "C", "Java", "Kotlin", "C++"], subjects: ["PIW", "AK2"], email: "marek.sus@pis.pl" },
-  ]);
+  const [students, setStudents] = useState([]);
 
-  const [groups, setGroups] = useState([
-    { name: "Web-Dev", members: [students[1], students[2]], description: "Grupa zajmuje się tworzeniem stron internetowych", subject: "PIW" },
-    { name: "Architektura komputerów", members: [students[0], students[1]], description: "Tworzymy szybkie programy", subject: "AK2" },
-  ]);
+  const [groups, setGroups] = useState([]);
+
+  useEffect(() => {
+    fetch("http://localhost:3000/PIW/Lab3/build/data/data.json", {
+      method: "GET",
+    }).then(response => {
+      response.json().then(data => {
+        setStudents(data.students);
+        setGroups(data.groups);
+      });
+    });
+  }, []);
+
 
   return (
     <HashRouter>
