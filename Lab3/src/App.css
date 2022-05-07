@@ -2,12 +2,17 @@
   text-align: center;
 }
 
-.students-list, .groups-list, .student-profile {
+.students-list, .groups-list {
   list-style-type: none;
   display: flex;
   flex-wrap: wrap;
   justify-content: space-evenly;
   align-items: baseline;
+}
+
+.student-profile {
+  display: flex;
+  justify-content: center
 }
 
 .student, .group {
