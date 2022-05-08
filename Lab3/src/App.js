@@ -20,7 +20,7 @@ function App() {
   const [state, dispatch] = useReducer(reducer, initState);
 
   useEffect(() => {
-    fetch("http://localhost:3000/PIW/Lab3/build/data/data.json", {
+    fetch("/PIW/Lab3/build/data/data.json", {
       method: "GET",
     }).then(response => response.json())
       .then(data => {
