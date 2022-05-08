@@ -1,9 +1,12 @@
 import { useParams, Link } from "react-router-dom";
+import { useContext } from "react";
+import { ReducerContext } from "../Contexts/ReducerContext";
 import Student from "./Student";
 
 const StudentProfile = ({ getStudent }) => {
 
   const { studentid } = useParams();
+  const [state, dispatch] = useContext(ReducerContext);
 
   const student = getStudent(studentid);
 
@@ -11,7 +14,15 @@ const StudentProfile = ({ getStudent }) => {
     <div className="student-profile">
       <div className="student">
         <Student student={student} />
-        <Link to="/sendMessage"><button className="submitButton">Wyślij wiadomość</button></Link>
+      </div>
+      <div>
+        <Link to="/sendMessage"><button className="messageButton">Wyślij wiadomość</button></Link>
+        {
+          state.favList.find(st => st.id === student.id) ?
+            <button onClick={() => dispatch({ type: "removeFromFavourite", payload: student })} className="unfavButton">Usuń z ulubionych</button>
+            :
+            <button onClick={() => dispatch({ type: "addToFavourite", payload: student })} className="favButton">Dodaj do ulubionych</button>
+        }
       </div>
     </div>
   );

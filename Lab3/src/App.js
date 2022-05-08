@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useReducer } from "react";
 import "./App.css";
 import AddStudent from "./components/Students/AddStudent";
 import { HashRouter, Routes, Route } from "react-router-dom";
@@ -10,12 +10,14 @@ import StudentProfile from "./components/Students/StudentProfile";
 import Login from "./components/User/Login";
 import UserContext from "./components/Contexts/UserContext";
 import Header from "./components/Header";
+import { reducer, initState, ReducerContext } from "./components/Contexts/ReducerContext";
 
 function App() {
   const [students, setStudents] = useState([]);
   const [groups, setGroups] = useState([]);
   const [nextStudentId, setNextStudentId] = useState();
   const [nextGroupId, setNextGroupId] = useState();
+  const [state, dispatch] = useReducer(reducer, initState);
 
   useEffect(() => {
     fetch("http://localhost:3000/PIW/Lab3/build/data/data.json", {
@@ -54,23 +56,25 @@ function App() {
 
   return (
     <UserContext.Provider value={useState(null)}>
-      <HashRouter>
-        <div className="App">
+      <ReducerContext.Provider value={[state, dispatch]}>
+        <HashRouter>
+          <div className="App">
 
-          <Header />
+            <Header />
 
-          <Routes>
-            <Route path="/" element={<SearchStudents students={students} />} />
-            <Route path="/addStudent" element={<AddStudent addStudent={addStudent} />} />
-            <Route path="/groups" element={<SearchGroups groups={groups} />} />
-            <Route path="/addGroup" element={<AddGroup students={students} addGroup={addGroup} />} />
-            <Route path="/sendMessage" element={<SendMessage />} />
-            <Route path="/profile/:studentid" element={<StudentProfile getStudent={getStudentById} />} />
-            <Route path="/login" element={<Login />} />
-          </Routes>
+            <Routes>
+              <Route path="/" element={<SearchStudents students={students} />} />
+              <Route path="/addStudent" element={<AddStudent addStudent={addStudent} />} />
+              <Route path="/groups" element={<SearchGroups groups={groups} />} />
+              <Route path="/addGroup" element={<AddGroup students={students} addGroup={addGroup} />} />
+              <Route path="/sendMessage" element={<SendMessage />} />
+              <Route path="/profile/:studentid" element={<StudentProfile getStudent={getStudentById} />} />
+              <Route path="/login" element={<Login />} />
+            </Routes>
 
-        </div >
-      </HashRouter >
+          </div >
+        </HashRouter >
+      </ReducerContext.Provider>
     </UserContext.Provider >
   );
 }

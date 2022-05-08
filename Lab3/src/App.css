@@ -12,7 +12,38 @@
 
 .student-profile {
   display: flex;
-  justify-content: center
+  justify-content: center;
+  align-items: center;
+}
+
+.messageButton {
+  width: 10rem;
+  height: 10rem;
+  font-size: larger;
+  background-color: #333;
+  color: rgb(100, 237, 149);
+  border-radius: 0.3rem;
+  border-color: rgb(100, 237, 149);
+}
+
+.favButton {
+  width: 10rem;
+  height: 10rem;
+  font-size: larger;
+  background-color: #403030;
+  color: rgb(250, 50, 90);
+  border-radius: 0.3rem;
+  border-color: crimson;
+}
+
+.unfavButton {
+  width: 10rem;
+  height: 10rem;
+  font-size: larger;
+  background-color: #222;
+  color: slategray;
+  border-radius: 0.3rem;
+  border-color: slategray;
 }
 
 .student, .group {

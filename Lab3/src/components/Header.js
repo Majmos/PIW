@@ -1,9 +1,19 @@
 import { Link } from "react-router-dom";
 import UserContext from "./Contexts/UserContext";
 import { useContext } from "react";
+import { ReducerContext } from "./Contexts/ReducerContext";
 
 const Header = () => {
   const [user, setUser] = useContext(UserContext);
+  const [state, dispatch] = useContext(ReducerContext);
+
+  const handleLogOut = () => {
+    localStorage.setItem(user, JSON.stringify(state.favList));
+    setUser(null);
+    localStorage.removeItem("password");
+    localStorage.removeItem("email");
+    dispatch({ type: "reset" });
+  };
 
   return (
     <nav>
@@ -14,7 +24,7 @@ const Header = () => {
             user === null ?
               <button className="navButton">Zaloguj się</button>
               :
-              <button onClick={() => setUser(null)} className="navButton">Wyloguj się</button>
+              <button onClick={handleLogOut} className="navButton">Wyloguj się</button>
           }
         </Link>
       </div>
