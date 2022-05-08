@@ -1,7 +1,8 @@
-import { useState } from "react";
+import { useState, useRef } from "react";
 
 const SendMassage = () => {
   const [modal, setModal] = useState("modal");
+  const message = useRef();
   const handleSubmit = (e) => {
     e.preventDefault();
     setModal("modal-active");
@@ -26,7 +27,7 @@ const SendMassage = () => {
           </div>
           <div className="formElement">
             <label>Wiadomość:</label>
-            <textarea required></textarea>
+            <textarea autoFocus ref={message} required></textarea>
           </div>
           <input value={"Wyślij"} className="submitButton" type={"submit"} />
         </form>
