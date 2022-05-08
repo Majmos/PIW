@@ -1,0 +1,82 @@
+{
+    "students": [
+        {
+            "id": 1,
+            "name": "Adam",
+            "description": "Jestem studentem. Szukam grupy do kursu Architektura Komputerów 2. Potrafię pisać kod w C.",
+            "tags": ["C", "Kotlin"],
+            "subjects": ["AK2"],
+            "email": "adam@student.pl" 
+        },
+        {
+            "id": 2,
+            "name": "Krzysiek Konon",
+            "description": "Udaje studenta",
+            "tags": ["C", "JS"],
+            "subjects": ["PIW", "AK2"],
+            "email": "krzysztof.konon@student.pl" 
+        },
+        {
+            "id": 3,
+            "name": "Wojtek Suchodolski",
+            "description": "Lubie tworzyć ładne strony internetowe.",
+            "tags": ["CSS", "JS"],
+            "subjects": ["PIW"],
+            "email": "wojtek.suchodolski@student.pl" 
+        },
+        {
+            "id": 4,
+            "name": "Marek Suski",
+            "description": "Chcę dostać się do jakiejkolwiek grupy.",
+            "tags": ["CSS", "JS", "C", "Java", "Kotlin", "C++"],
+            "subjects": ["PIW", "AK2"],
+            "email": "marek.sus@pis.pl" 
+        }
+    ],
+    "groups": [
+        {
+            "id": 1,
+            "name": "Web-Dev",
+            "members": [
+                {
+                    "name": "Krzysiek Konon",
+                    "description": "Udaje studenta",
+                    "tags": ["C", "JS"],
+                    "subjects": ["PIW", "AK2"],
+                    "email": "krzysztof.konon@student.pl" 
+                },
+                {
+                    "name": "Wojtek Suchodolski",
+                    "description": "Lubie tworzyć ładne strony internetowe.",
+                    "tags": ["CSS", "JS"],
+                    "subjects": ["PIW"],
+                    "email": "wojtek.suchodolski@student.pl" 
+                }
+            ],
+            "description": "Grupa zajmuje się tworzeniem stron internetowych",
+            "subject": "PIW" 
+        },
+        {
+            "id": 2,
+            "name": "Architektura komputerów",
+            "members": [
+                {
+                    "name": "Adam",
+                    "description": "Jestem studentem. Szukam grupy do kursu Architektura Komputerów 2. Potrafię pisać kod w C.",
+                    "tags": ["C", "Kotlin"],
+                    "subjects": ["AK2"],
+                    "email": "adam@student.pl" 
+                },
+                {
+                    "name": "Krzysiek Konon",
+                    "description": "Udaje studenta",
+                    "tags": ["C", "JS"],
+                    "subjects": ["PIW", "AK2"],
+                    "email": "krzysztof.konon@student.pl" 
+                }
+            ],
+            "description": "Tworzymy szybkie programy",
+            "subject": "AK2" 
+        }
+    ]
+}
