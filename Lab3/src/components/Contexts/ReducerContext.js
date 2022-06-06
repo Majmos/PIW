@@ -3,7 +3,8 @@ import { createContext } from "react";
 export const ReducerContext = createContext([{}, () => { }]);
 
 export const initState = {
-  favList: []
+  favList: [],
+  firebaseApp: {}
 };
 
 export const reducer = (state, action) => {
@@ -15,6 +16,8 @@ export const reducer = (state, action) => {
     case "removeFromFavourite": state = handleRemove(state, payload);
       break;
     case "setFavList": state = { ...initState, favList: payload.favList };
+      break;
+    case "setApp": state = { ...initState, firebaseApp: payload.app };
       break;
     case "reset": state = { ...initState };
       break;

@@ -12,6 +12,7 @@ const Header = () => {
     setUser(null);
     localStorage.removeItem("password");
     localStorage.removeItem("email");
+    state.firebaseApp.auth().signOut();
     dispatch({ type: "reset" });
   };
 
